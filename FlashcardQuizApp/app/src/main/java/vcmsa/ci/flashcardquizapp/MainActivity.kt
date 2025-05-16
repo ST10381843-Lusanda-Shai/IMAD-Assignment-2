@@ -1,6 +1,7 @@
-package vcmsa.ci.flashcardapplication
+package vcmsa.ci.flashcardquizapp
 
 import android.content.Intent
+import android.icu.text.CaseMap.Title
 import android.os.Bundle
 import android.os.Message
 import android.widget.Button
@@ -13,7 +14,7 @@ import kotlin.system.exitProcess
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var titleMessage: TextView
+    private lateinit var appTitle: TextView
     private lateinit var welcomeMessage: TextView
     private lateinit var startBtn: Button
     private lateinit var exitBtn: Button
@@ -23,19 +24,13 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
-        val titleMessage: TextView = findViewById(R.id.titleMessage)
-        val welcomeMessage: TextView = findViewById(R.id.welcomeMessage)
-        val startBtn: Button = findViewById(R.id.startBtn)
-        val exitBtn: Button = findViewById(R.id.exitBtn)
-
         startBtn.setOnClickListener {
-            val intent = Intent(this, QuizScreen::class.java)
-            startActivity(intent)
+
         }
 
         exitBtn.setOnClickListener {
-         finishAffinity() //Close all activities
-         exitProcess(0) //Terminate the process
+            finishAffinity()
+            exitProcess(0)
         }
 
     }
